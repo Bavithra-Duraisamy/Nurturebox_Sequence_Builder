@@ -8,9 +8,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import base.BaseClass;
+import net.datafaker.Faker;
 
 public class CreateSequenceFromScratchPage extends BaseClass {
 	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	Faker faker = new Faker();
 
 	public CreateSequenceFromScratchPage clickNewSequenceButton() {
 		driver.findElement(By.xpath(prop.getProperty("new_sequence_button"))).click();
@@ -22,7 +24,8 @@ public class CreateSequenceFromScratchPage extends BaseClass {
 		return this;
 	}
 
-	public CreateSequenceFromScratchPage enterSequenceName(String seqName) {
+	public CreateSequenceFromScratchPage enterSequenceName() {
+		String seqName = faker.job().position();
 		driver.findElement(By.xpath(prop.getProperty("sequence_name_input_box"))).sendKeys(seqName);
 		return this;
 	}
@@ -43,12 +46,17 @@ public class CreateSequenceFromScratchPage extends BaseClass {
 		return this;
 	}
 
-	public CreateSequenceFromScratchPage enterSubject(String subject) {
+	public CreateSequenceFromScratchPage enterSubject() {
+		// Generate a random email subject
+		String subject = "RE: " + faker.company().catchPhrase();
 		driver.findElement(By.xpath(prop.getProperty("subject_input"))).sendKeys(subject);
 		return this;
 	}
 
-	public CreateSequenceFromScratchPage enterEmailBody(String emailBody) {
+	public CreateSequenceFromScratchPage enterEmailBody() {
+		// Generate a random email content
+		String emailBody = "Dear " + faker.name().firstName() + ",\n\n" + "I hope this email finds you well. "
+				+ faker.lorem().sentence() + "\n\n" + "Best Regards,\n" + faker.name().fullName();
 		driver.findElement(By.xpath(prop.getProperty("email_body_input"))).sendKeys(emailBody);
 		return this;
 	}

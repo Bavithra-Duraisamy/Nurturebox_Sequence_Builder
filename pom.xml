@@ -69,8 +69,6 @@
 			<version>2.0.0</version>
 		</dependency>
 	</dependencies>
-
-	<!-- ADD THIS SECTION BELOW -->
 	<build>
 		<plugins>
 			<plugin>
