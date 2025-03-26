@@ -7,3 +7,4 @@
 # Ignore bin and test-output folders
 bin/
 test-output/
+/target/

@@ -6,7 +6,7 @@
 		<parameter name="password" value="test@1234"></parameter>
 		<parameter name="url" value="https://logindev.nurturebox.ai/login"></parameter>
 		<classes>
-			<class name="testcases.CreateKnowledgeBase" />
+			<class name="testcases.CreateKnowledgeBaseUsingTxtFile" />
 		</classes>
 	</test> <!--
 	Test -->
